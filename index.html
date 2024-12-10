@@ -3,105 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网站分组导航器</title>
+    <title>网站导航</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            height: 100vh;
             background-color: #f0f0f0;
-        }
-        .sidebar {
-            width: 250px;
-            background-color: #333;
-            padding: 20px 0;
-            overflow-y: auto;
-        }
-        .group-title {
-            color: #fff;
-            padding: 10px 20px;
-            background-color: #444;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .sidebar a {
-            display: block;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            background-color: #555;
-            margin: 2px 0;
-            transition: background-color 0.3s;
-        }
-        .sidebar a:hover {
-            background-color: #666;
-        }
-        .content {
-            flex-grow: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f4f4f4;
-            overflow-y: auto;
+            min-height: 100vh;
         }
-        .welcome {
-            text-align: center;
-            color: #333;
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1200px;
             padding: 20px;
         }
+        .group {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+        .group:hover {
+            transform: scale(1.05);
+        }
+        .group-title {
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            color: #333;
+        }
+        .group-links {
+            display: flex;
+            flex-direction: column;
+        }
+        .group-links a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            margin: 5px 0;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .group-links a:hover {
+            background-color: #e0e0e0;
+            color: #000;
+        }
+        /* 为不同分组定制颜色 */
+        .search-engines .group-title { color: #1a73e8; }
+        .search-engines a:hover { background-color: #e6f2ff; }
+        
+        .ai-all .group-title { color: #4CAF50; }
+        .ai-all a:hover { background-color: #e8f5e9; }
+        
+        .ai-drawing .group-title { color: #FF5722; }
+        .ai-drawing a:hover { background-color: #fff3e0; }
+        
+        .ai-video .group-title { color: #9C27B0; }
+        .ai-video a:hover { background-color: #f3e5f5; }
+        
+        .ai-search .group-title { color: #2196F3; }
+        .ai-search a:hover { background-color: #e3f2fd; }
+        
+        .media .group-title { color: #FF9800; }
+        .media a:hover { background-color: #fff3e0; }
+        
+        .dev-tools .group-title { color: #673AB7; }
+        .dev-tools a:hover { background-color: #ede7f6; }
+        
+        .knowledge .group-title { color: #009688; }
+        .knowledge a:hover { background-color: #e0f2f1; }
+        
+        .news-media .group-title { color: #795548; }
+        .news-media a:hover { background-color: #efebe9; }
     </style>
 </head>
 <body>
-    <div class="sidebar">
-        <div class="group-title">搜索引擎</div>
-        <a href="https://www.google.com" target="_blank">Google</a>
-        <a href="https://www.bing.com" target="_blank">Bing</a>
-        <a href="https://www.baidu.com" target="_blank">百度</a>
+    <div class="container">
+        <div class="group search-engines">
+            <div class="group-title">搜索引擎</div>
+            <div class="group-links">
+                <a href="https://www.google.com" target="_blank">Google</a>
+                <a href="https://www.bing.com" target="_blank">Bing</a>
+                <a href="https://www.baidu.com" target="_blank">百度</a>
+            </div>
+        </div>
 
-        <div class="group-title">AI全能</div>
-        <a href="https://chatgpt.com" target="_blank">ChatGPT</a>
-        <a href="https://claude.ai" target="_blank">Claude</a>
-        
-        <div class="group-title">AI 绘图</div>
-        <a href="https://midjourney.com" target="_blank">Midjourney</a>
+        <div class="group ai-all">
+            <div class="group-title">AI 全能</div>
+            <div class="group-links">
+                <a href="https://chatgpt.com" target="_blank">ChatGPT</a>
+                <a href="https://claude.ai" target="_blank">Claude</a>
+            </div>
+        </div>
 
-        <div class="group-title">AI 视频</div>
-        <a href="https://hailuoai.com" target="_blank">海螺AI</a>
-        <a href="https://app.runwayml.com" target="_blank">Runway</a>
-        <a href="https://klingai.com" target="_blank">可灵海外版</a>
-        <a href="https://klingai.kuaishou.com" target="_blank">可灵国内版</a>        
-        
-        <div class="group-title">AI 搜索</div>
-        <a href="https://www.perplexity.ai" target="_blank">Perplexity AI</a>
-        <a href="https://metaso.cn" target="_blank">秘塔AI</a>
+        <div class="group ai-drawing">
+            <div class="group-title">AI 绘图</div>
+            <div class="group-links">
+                <a href="https://midjourney.com" target="_blank">Midjourney</a>
+            </div>
+        </div>
 
-        <div class="group-title">媒体网站集合</div>
-        <a href="https://www.youtube.com" target="_blank">YouTube</a>
-        <a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a>
+        <div class="group ai-video">
+            <div class="group-title">AI 视频</div>
+            <div class="group-links">
+                <a href="https://hailuoai.com" target="_blank">海螺AI</a>
+                <a href="https://app.runwayml.com" target="_blank">Runway</a>
+                <a href="https://klingai.com" target="_blank">可灵海外版</a>
+                <a href="https://klingai.kuaishou.com" target="_blank">可灵国内版</a>
+            </div>
+        </div>
 
-        <div class="group-title">开发工具</div>
-        <a href="https://www.github.com" target="_blank">GitHub</a>
-        <a href="https://www.stackoverflow.com" target="_blank">Stack Overflow</a>
-        <a href="https://www.gitlab.com" target="_blank">GitLab</a>
-        <a href="https://www.bitbucket.org" target="_blank">Bitbucket</a>
+        <div class="group ai-search">
+            <div class="group-title">AI 搜索</div>
+            <div class="group-links">
+                <a href="https://www.perplexity.ai" target="_blank">Perplexity AI</a>
+                <a href="https://metaso.cn" target="_blank">秘塔AI</a>
+            </div>
+        </div>
 
-        <div class="group-title">知识资源</div>
-        <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
-        <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
-        <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
+        <div class="group media">
+            <div class="group-title">媒体网站集合</div>
+            <div class="group-links">
+                <a href="https://www.youtube.com" target="_blank">YouTube</a>
+                <a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a>
+            </div>
+        </div>
 
-        <div class="group-title">新闻与媒体</div>
-        <a href="https://www.cnn.com" target="_blank">CNN</a>
-        <a href="https://www.bbc.com" target="_blank">BBC</a>
-        <a href="https://www.reuters.com" target="_blank">Reuters</a>
-    </div>
-    <div class="content">
-        <div class="welcome">
-            <h1>网站分组导航器</h1>
-            <p>点击左侧按钮在新标签页中打开网站</p>
-            <p>网站已按功能和类型进行分组</p>
+        <div class="group dev-tools">
+            <div class="group-title">开发工具</div>
+            <div class="group-links">
+                <a href="https://www.github.com" target="_blank">GitHub</a>
+                <a href="https://www.stackoverflow.com" target="_blank">Stack Overflow</a>
+                <a href="https://www.gitlab.com" target="_blank">GitLab</a>
+                <a href="https://www.bitbucket.org" target="_blank">Bitbucket</a>
+            </div>
+        </div>
+
+        <div class="group knowledge">
+            <div class="group-title">知识资源</div>
+            <div class="group-links">
+                <a href="https://www.wikipedia.org" target="_blank">Wikipedia</a>
+                <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+                <a href="https://www.researchgate.net" target="_blank">ResearchGate</a>
+            </div>
+        </div>
+
+        <div class="group news-media">
+            <div class="group-title">新闻与媒体</div>
+            <div class="group-links">
+                <a href="https://www.cnn.com" target="_blank">CNN</a>
+                <a href="https://www.bbc.com" target="_blank">BBC</a>
+                <a href="https://www.reuters.com" target="_blank">Reuters</a>
+            </div>
         </div>
     </div>
 </body>
